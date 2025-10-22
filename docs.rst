@@ -144,7 +144,7 @@ NOTE - Paths should NOT end with a terminating slash (either ``\`` or ``/`` depe
 double slashes being inserted into the database.
 
 texturecache.py
-+++++++++++++++
+---------------
 
 Inclusion of ``texturecache.py`` (by Milhouse):
 
@@ -170,8 +170,8 @@ If ``texturecache.py`` is Enabled, run it, multiple times, each time with one of
 Pipe ``texturecache.py`` output to the ``database.cleaner`` logfile will do just that. WARNING: This will create a large file!
 
 
-Deep Clean
-++++++++++
+Deep clean
+----------
 
 WARNING - CAN BE VERY SLOW! (it will probe every physical file/directory as well as all that are listed in the database).
 
