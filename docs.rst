@@ -17,8 +17,8 @@ General settings
 
 A) Keep any pvr information
 
-When enabled the add-on will not delete any references to files recorded with a 
-live-tv backend. 
+When enabled the add-on will not delete any references to files recorded with a
+live-tv backend.
 
 B) Keep bookmarked files
 
@@ -27,15 +27,15 @@ in a path that would have been deleted otherwise.
 
 C) Automatically trigger clean library
 
-When enabled, the add-on will call Kodi's built in 'clean library' routine after it 
+When enabled, the add-on will call Kodi's built in 'clean library' routine after it
 has finished it's own cleaning.  This cleans the other tables in the database that the
 add-on doesn't touch.  It is recommended that this setting is left enabled at all times.
 
 -Run clean library 2-6 times
-*Kodi will sometimes require multiple passes to clean all the paths that it can potentially clean 
-(This is because of "cascading" effects of removing invalid files, invalid paths and invalid 
-parent paths). 
-When enabled,this option will run Clean Library a number of additonal times, from 2-6, until there are 
+*Kodi will sometimes require multiple passes to clean all the paths that it can potentially clean
+(This is because of "cascading" effects of removing invalid files, invalid paths and invalid
+parent paths).
+When enabled,this option will run Clean Library a number of additonal times, from 2-6, until there are
 the same number of paths and files left at the end.
 
 D) Back-up local database before cleaning
@@ -50,7 +50,7 @@ E) Show summary window
 
 When enabled, a pop-up window will list various settings and paths, depending upon the options
 chosen in the add-on settings. It is possible to abort the add-on run at this point which will
-leave the database un-touched, or to select the 'Do It !!' button which will run the cleaning 
+leave the database un-touched, or to select the 'Do It !!' button which will run the cleaning
 routine with the chosen settings.  If this setting is disabled, the add-on will run without user
 intervention although any logs will still be created.
 
@@ -59,9 +59,9 @@ Debug and log settings
 
 A) Log paths to database-cleaner.log
 
-If enabled the add-on will create a logfile in Kodi's 'temp' directory that records all the 
+If enabled the add-on will create a logfile in Kodi's 'temp' directory that records all the
 paths that the add-on will delete.  If 'show summary window' is enabled it is possible to stop
-the add-on by pressing the 'abort' button.  The logfile will still be created so that users can 
+the add-on by pressing the 'abort' button.  The logfile will still be created so that users can
 see what will be deleted before actually doing so.  When the add-on cleans the video database, any
 existing log will be backed-up to 'database-cleaner.old.log'.
 
@@ -93,7 +93,7 @@ B) Use sources.xml on this machine
 Generally, this setting should be enabled.  Users of MySQL databases do not need to have a 'sources.xml' on each
 machine that their database is shared with, because the paths are contained within the shared database.
 Such users can disable this setting and can then set the path to a 'sources.xml' on a different networked
-machine. This means MySQL users can run the add-on on any of their machines whilst only having a 
+machine. This means MySQL users can run the add-on on any of their machines whilst only having a
 'sources.xml' on one machine.
 
 Advanced
@@ -118,26 +118,26 @@ the 'do it !!' button is pressed.
 
 C) Replace path in database
 
-If enabled the user must specify an existing path and a new path. Any paths containing the 
-specified existing path will be renamed to the new path.  This is useful if you move a 
+If enabled the user must specify an existing path and a new path. Any paths containing the
+specified existing path will be renamed to the new path.  This is useful if you move a
 directory on disk but do not want to remove and re-scan the source in Kodi. The add-on
 generates the list of paths by appending a wildcard to the supplied 'old path'.  This means that
 a supplied path of 'nfs://OLD_SERVER' will include 'nfs://OLD_SERVER/Movies' and any other
-directories in the tree. If the new path were 'nfs://NEW_SERVER' then every path starting with 
+directories in the tree. If the new path were 'nfs://NEW_SERVER' then every path starting with
 'nfs://OLD_SERVER' will become 'nfs://NEW_SERVER' eg with the Movies directory above, the path
 would become 'nfs://NEW_SERVER/Movies'. Renaming a path automatically turns off once the path
-has been renamed.  Again, it is possible by aborting the add-on in the summary window to generate a 
+has been renamed.  Again, it is possible by aborting the add-on in the summary window to generate a
 logfile showing the original path and the new path to aid users in determining if everything is correct.
 Clicking on the 'Do it !' button or turning off the summary window will rename the path(s) and turn this setting off.
 
-NOTE - Paths should NOT end with a terminating slash (either '\' or '/' depending on your OS) as this will lead to 
+NOTE - Paths should NOT end with a terminating slash (either '\' or '/' depending on your OS) as this will lead to
 double slashes being inserted into the database.
 
 texturecache.py
 +++++++++++++++
 
 Inclusion of texturecache.py (by Milhouse):
-Additional settings in the Video Database Cleaner addon to allow user to run texturecache.py 
+Additional settings in the Video Database Cleaner addon to allow user to run texturecache.py
 after the Video Database Cleaner has completed cleaning the MyMovies.db.
 Additional settings allow the user to:
 a. Enable or Disable the running of texturecache.py at the end of the Video Database cleanup
@@ -160,11 +160,11 @@ Deep Clean
 ++++++++++
 
 WARNING - CAN BE VERY SLOW! (it will probe every physical file/directory as well as all that are listed in the database)
-This option manually scans the locations listed in sources.xml, and builds a list of current, legitimate directories and files. 
+This option manually scans the locations listed in sources.xml, and builds a list of current, legitimate directories and files.
 It doesn't know or care if directories are removable media/network storage/mount points and ignores the 'keep bookmarks' function and doesn't work on the 'remove specific path' operations (only on the general cleaning operations).
 
 Once it has the list of exisiting, legitimate media files, it will compare this to the database and remove any enries that do not correspond.
-*This is helpful when there have been a lot of manualy deleted files/folders that the built in Kodi Video cleaner dos not clean up.  
+*This is helpful when there have been a lot of manualy deleted files/folders that the built in Kodi Video cleaner dos not clean up.
 It will help to remove many of the "directory does not exist" erros in the kodi.log file
 
 - Files and Paths only in one directory: - This can help to focus the Deep Clean on a specific directory, instaed of all media.
@@ -179,7 +179,7 @@ run.  No other cleaning will be done however.
 
 To run the add-on silently as a scheduled task, turn OFF 'Show summary window' in general settings.
 
-To remove old links, streaming info and general rubbish accumulated in the database, ensure that 
+To remove old links, streaming info and general rubbish accumulated in the database, ensure that
 'use sources.xml to determine files to keep' is turned ON.  If you have a PVR backend, turn on
 'keep any pvr information' otherwise all information relating to your recordings will be deleted.
 
