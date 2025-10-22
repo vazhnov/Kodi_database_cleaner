@@ -19,7 +19,7 @@ General settings
 
 A) Keep any pvr information
 
-When enabled the add-on will not delete any references to files recorded with a
+When enabled, the add-on will not delete any references to files recorded with a
 live-tv backend.
 
 B) Keep bookmarked files
@@ -33,8 +33,7 @@ When enabled, the add-on will call Kodi's built in 'clean library' routine after
 has finished it's own cleaning.  This cleans the other tables in the database that the
 add-on doesn't touch.  It is recommended that this setting is left enabled at all times.
 
--Run clean library 2-6 times
-* Kodi will sometimes require multiple passes to clean all the paths that it can potentially clean
+D) Run clean library 2-6 times - Kodi sometimes requires multiple passes to clean all the paths that it can potentially clean
 (This is because of "cascading" effects of removing invalid files, invalid paths and invalid
 parent paths).
 When enabled, this option will run Clean Library a number of additional times, from 2-6, until there are
@@ -44,7 +43,9 @@ D) Back-up local database before cleaning
 
 When enabled, the database will be backed up to a sub-directory in Kodi's Database directory.
 The back-up is time and date stamped in case a user wishes/needs to revert to an older database.
-Optionally, it is also possible to specify a name for the back-up. NOTE - It is not possible
+Optionally, it is also possible to specify a name for the back-up.
+
+NOTE - It is not possible
 for the add-on to back up a MySQL shared database. Users with MySQL databases should use their
 tool of choice to manually back-up their database. phpMyAdmin is one such tool used by the authors.
 
@@ -69,7 +70,7 @@ existing log will be backed-up to ``database-cleaner.old.log``.
 
 B) Log creation style
 
-Two options are available - create new log each run or add to log each run. If the first option
+Two options are available - create new log each run or append to existing log each run. If the first option
 is chosen, any existing log will be deleted and replaced with a fresh log. If the second option
 is chosen, the logfile will be added to on each run. Logfiles are still backed-up on cleaning,
 regardless of this setting.
@@ -110,8 +111,11 @@ disabled unless the user understands the implications of enabling it.
 
 B) Remove specific path from database
 
-If enabled the user must enter a path to be deleted from the database.  NOTE - A wildcard will be
-appended to the end of the supplied path.  The add-on will remove the path from the files table
+If enabled the user must enter a path to be deleted from the database.
+
+NOTE - A wildcard will be appended to the end of the supplied path.
+
+The add-on will remove the path from the files table
 in the database. This setting will revert to disabled once the add-on has removed the path from
 the database.  It is however possible, by using the summary window, to generate a logfile showing
 the details of paths to be removed by aborting the add-on at this point and viewing the log file
@@ -123,12 +127,16 @@ C) Replace path in database
 If enabled, the user must specify an existing path and a new path. Any paths containing the
 specified existing path will be renamed to the new path. This is useful if you move a
 directory on disk but do not want to remove and re-scan the source in Kodi. The add-on
-generates the list of paths by appending a wildcard to the supplied 'old path'. This means that
+generates the list of paths by appending a wildcard to the supplied 'old path'.
+
+This means that
 a supplied path of ``nfs://OLD_SERVER`` will include ``nfs://OLD_SERVER/Movies`` and any other
 directories in the tree. If the new path were ``nfs://NEW_SERVER`` then every path starting with
 ``nfs://OLD_SERVER`` will become ``nfs://NEW_SERVER`` e.g. with the ``Movies`` directory above, the path
 would become ``nfs://NEW_SERVER/Movies``. Renaming a path automatically turns off once the path
-has been renamed. Again, it is possible by aborting the add-on in the summary window to generate a
+has been renamed.
+
+Again, it is possible by aborting the add-on in the summary window to generate a
 logfile showing the original path and the new path to aid users in determining if everything is correct.
 Clicking on the 'Do it !' button or turning off the summary window will rename the path(s) and turn this setting off.
 
