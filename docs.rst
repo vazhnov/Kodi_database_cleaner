@@ -147,16 +147,17 @@ Additional settings allow the user to:
 
 a. Enable or Disable the running of ``texturecache.py`` at the end of the Video Database cleanup
 b. Configure any of the settings available in the ``texturecache.cfg`` file.
+
 If ``texturecache.py`` is Enabled, run it, multiple times, each time with one of the following flags:
 
-[c, C] Automatically cache missing artwork (c), or with option C force the re-caching of existing artwork by removing first then downloading. Can use multiple threads (default is 2)
-[lc] Same as c and nc, but only considers those media (movies, tvshows/episodes) added since the modification timestamp of the file identified by the property lastrunfile
-[p, P] Prune texture cache by identifying (p) or removing (P) accumulated cruft such as image previews, previously deleted movies/tv shows/music whose artwork remains in the texture cache even after cleaning the database. Essentially, remove any cached file that is no longer associated with an entry in the media library and is therefore just wasting disk space
-[Xd] Remove those rows from the texture cache database that do not have corresponding files in the Thumbnails folder (ie. remove same rows identified by X)
-[r, R] Reverse query cache, identifying "orphaned" files that are no longer referenced in the texture cache database. Use R option to auto-delete these files.
-[qa] Perform QA check on media library recently added items, identifying missing properties (eg. plot, mpaa certificate, artwork etc.). Default QA period is previous 30 days. Add property qa.file = yes to verify file exists during QA. Add additional QA fields using qa.art.*, qa.blank.* and qa.zero.* properties.
-[qax] Like the qa option, but performs a remove and then rescan of any media found to fail the QA tests
-[duplicates] List movies that appear more than once in the media library with the same imdb number
+- [c, C] Automatically cache missing artwork (c), or with option C force the re-caching of existing artwork by removing first then downloading. Can use multiple threads (default is 2)
+- [lc] Same as c and nc, but only considers those media (movies, tvshows/episodes) added since the modification timestamp of the file identified by the property lastrunfile
+- [p, P] Prune texture cache by identifying (p) or removing (P) accumulated cruft such as image previews, previously deleted movies/tv shows/music whose artwork remains in the texture cache even after cleaning the database. Essentially, remove any cached file that is no longer associated with an entry in the media library and is therefore just wasting disk space
+- [Xd] Remove those rows from the texture cache database that do not have corresponding files in the Thumbnails folder (ie. remove same rows identified by X)
+- [r, R] Reverse query cache, identifying "orphaned" files that are no longer referenced in the texture cache database. Use R option to auto-delete these files.
+- [qa] Perform QA check on media library recently added items, identifying missing properties (eg. plot, mpaa certificate, artwork etc.). Default QA period is previous 30 days. Add property qa.file = yes to verify file exists during QA. Add additional QA fields using qa.art.*, qa.blank.* and qa.zero.* properties.
+- [qax] Like the qa option, but performs a remove and then rescan of any media found to fail the QA tests
+- [duplicates] List movies that appear more than once in the media library with the same imdb number
 
 Pipe ``texturecache.py`` output to the ``database.cleaner`` logfile will do just that. WARNING: This will create a large file!
 
@@ -220,12 +221,9 @@ A wildcard is appended to the contents of any <exclude> tag, so:
 
 Users can be as precise or as vague as they require. Fox example:
 
-- ``<exclude>plugin://plugin.video.itunes_trailers</exclude>`` keeps all the links that
-the ``itunes_trailers`` plugin has played. Useful if you want to maintain watched status
-for your trailers.
-- ``<exclude>plugin://plugin.video.itunes_trailers/trailer/play/http%3A%2F%2Fmovietrailers.apple.com%2Fmovies%2Fdisney%2Fzootopia%2Fzootopia-tlr1_h720p.mov</exclude>``
-keeps just that one trailer and deletes all the others.
+- ``<exclude>plugin://plugin.video.itunes_trailers</exclude>`` - keeps all the links that the ``itunes_trailers`` plugin has played. Useful if you want to maintain watched status for your trailers.
+- ``<exclude>plugin://plugin.video.itunes_trailers/trailer/play/http%3A%2F%2Fmovietrailers.apple.com%2Fmovies%2Fdisney%2Fzootopia%2Fzootopia-tlr1_h720p.mov</exclude>`` - keeps just that one trailer and deletes all the others.
 
-NOTE - It is possible to specify any  valid path or part of a path in the ``<exclude>`` tag
+NOTE - It is possible to specify any valid path or part of a path in the ``<exclude>`` tag.
 This allows very fine control over what is removed or kept.
 
