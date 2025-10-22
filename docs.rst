@@ -17,7 +17,7 @@ Settings
 General settings
 ++++++++++++++++
 
-A) Keep any pvr information
+A) Keep any PVR information
 
 When enabled, the add-on will not delete any references to files recorded with a
 live-tv backend.
@@ -188,28 +188,31 @@ Settings:
 - Files and Paths only in one directory - this can help to focus the Deep Clean on a specific directory, instead of all media.
 
 
-USAGE
+Usage
 =====
 
 To quickly remove any streaming links from your database, turn OFF 'Use sources.xml to determine files to keep'
-in the add-on's 'sources' settings.  This will remove only streaming links from your database when the add-on is
-run.  No other cleaning will be done however.
+in the add-on's 'sources' settings. This will remove only streaming links from your database when the add-on is
+run. No other cleaning will be done however.
 
 To run the add-on silently as a scheduled task, turn OFF 'Show summary window' in general settings.
 
 To remove old links, streaming info and general rubbish accumulated in the database, ensure that
 'use sources.xml to determine files to keep' is turned ON.  If you have a PVR backend, turn on
-'keep any pvr information' otherwise all information relating to your recordings will be deleted.
+'Keep any PVR information' otherwise all information relating to your recordings will be deleted.
 
-ADVANCED USAGE
+Advanced usage
 ==============
 
 The add-on can exclude user defined paths (including plugins) from the clean.  This is done by
 creating a file called ``excludes.xml`` in the add-ons ``addon_data`` directory.  This is located
 in Kodi's ``userdata`` directory. Inside the addon_data directory, users should find a directory
-called ``script.database.cleaner``.  NOTE - if you have not changed any settings, this directory
-may not exist by default.  Changing one setting should ensure this directory exists. This file
-however does not exist by default, it must be created by the user.
+called ``script.database.cleaner``.
+
+NOTE - if you have not changed any settings, this directory
+may not exist by default. Changing one setting should ensure this directory exists.
+
+This file however does not exist by default, it must be created by the user.
 
 The format of the ``excludes.xml`` file is simple. Example:
 
